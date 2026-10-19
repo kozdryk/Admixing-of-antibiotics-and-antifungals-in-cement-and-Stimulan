@@ -15,7 +15,7 @@ A single-file, offline-capable web reference on adding (admixing) antibiotics an
 | Carriers | PMMA cements and bioabsorbable carriers |
 | Combinations | Multi-agent regimens with outcome data; what to avoid |
 | Technique | Theatre SOP for PMMA and for Stimulan |
-| Governance | JAC 2026 good-practice framework, regional formulary criteria, UK regulatory summary, working-group decisions |
+| Governance | JAC 2026 good-practice framework, regional formulary criteria, UK regulatory summary |
 | Safety | Monitoring table (renal, drug levels, calcium, drainage, antifungal assays) |
 | References | 68 references in Vancouver format; PubMed-indexed items verified October 2026 with DOI/PMID links |
 
