@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Working reference: admixing antibiotics and antifungals into PMMA bone cement and calcium sulphate (Stimulan) carriers for periprosthetic joint infection. Draft v2.0 — not for clinical use.">
+<title>Admixing of Antibiotics &amp; Antifungals in Cement and Stimulan</title>
+<style>
+  :root{
+    --navy:#1F3864; --blue:#2E75B6; --ltblue:#E3EEF7; --bg:#f4f6f9; --card:#ffffff;
+    --line:#dde3ea; --text:#1f2733; --muted:#5b6675; --amber:#b45309; --amberbg:#fff7ed; --amberline:#fed7aa;
+    --green:#15803d; --red:#b91c1c; --redbg:#fef2f2; --redline:#fecaca; --focus:#1d4ed8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;font-size:15px}
+  header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:22px 20px 16px}
+  header h1{margin:0;font-size:21px;font-weight:700;line-height:1.25}
+  header p{margin:5px 0 0;font-size:13px;opacity:.92}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  .banner{background:var(--amberbg);border:1px solid var(--amberline);color:#9a3412;font-size:13px;padding:10px 14px;border-radius:8px;margin:14px 0}
+  .banner b{color:#7c2d12}
+  nav{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 8px}
+  nav button{background:var(--card);border:1px solid var(--line);color:var(--text);padding:8px 14px;border-radius:999px;font-size:13.5px;cursor:pointer;font-weight:600}
+  nav button:hover{border-color:var(--blue)}
+  nav button[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+  button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+  section{display:none}
+  section.active{display:block}
+  h2{font-size:18px;color:var(--navy);margin:18px 0 8px}
+  h3{font-size:15.5px;color:var(--navy);margin:16px 0 6px}
+  p.lead{font-size:14px;color:var(--muted);margin:0 0 12px}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px;align-items:center}
+  .controls input,.controls select{padding:9px 12px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;color:var(--text)}
+  .controls input{flex:1;min-width:180px}
+  .count{font-size:12.5px;color:var(--muted);margin-left:auto}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;margin:6px 0 10px;color:var(--muted);align-items:center}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .grade{font-size:11px;font-weight:800;min-width:30px;height:24px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;color:#fff}
+  .gA{background:#15803d}.gB{background:#4d7c0f}.gC{background:#b45309}.gD{background:#92400e}.gE{background:#6b7280}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+  .card-head{width:100%;text-align:left;background:none;border:0;padding:13px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;font:inherit;color:inherit}
+  .card-head:hover{background:#fafbfc}
+  .card-head h3{margin:0;font-size:15.5px;color:var(--text)}
+  .card-head .cls{font-size:12.5px;color:var(--muted);font-weight:500;display:block;margin-top:2px}
+  .pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap}
+  .pill.af{background:#fdf2f8;color:#9d174d}
+  .pill.ab{background:#eff6ff;color:#1e40af}
+  .chev{color:var(--muted);font-size:13px;transition:transform .2s}
+  .card.open .chev{transform:rotate(90deg)}
+  .body{display:none;padding:4px 16px 16px;border-top:1px solid var(--line)}
+  .card.open .body{display:block}
+  .grid{display:grid;grid-template-columns:190px 1fr;gap:5px 14px;font-size:13.5px;margin-top:10px}
+  .grid dt{color:var(--muted);font-weight:600}
+  .grid dd{margin:0}
+  .mix{background:var(--ltblue);border-radius:8px;padding:10px 12px;margin-top:12px;font-size:13px}
+  .mix b{color:var(--navy)}
+  .flag{background:var(--redbg);border:1px solid var(--redline);color:#991b1b;border-radius:8px;padding:8px 12px;margin-top:10px;font-size:13px}
+  .note{background:#f8fafc;border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-top:10px;font-size:13px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;background:#fff;font-size:13px;margin:8px 0 16px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-bottom:16px;background:#fff}
+  .tablewrap table{margin:0}
+  th{background:var(--navy);color:#fff;text-align:left;padding:9px 11px;font-size:12.5px;vertical-align:bottom}
+  td{padding:9px 11px;border-top:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#fafbfc}
+  a{color:var(--blue)}
+  .ref{font-size:13px;padding:8px 0;border-bottom:1px solid var(--line);scroll-margin-top:12px}
+  .ref b{color:var(--navy)}
+  .ref .ids{color:var(--muted);font-size:12px}
+  .refnums{font-size:12px;color:var(--blue);margin-top:10px}
+  .refnums a{margin-right:6px;text-decoration:none;font-weight:600}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+  .box h3{margin-top:4px}
+  ol.std{padding-left:22px;font-size:14px}
+  ol.std li{margin:6px 0}
+  ul.tight{padding-left:20px;font-size:14px}
+  ul.tight li{margin:5px 0}
+  .kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:10px 0}
+  .kp div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px}
+  .kp div b{display:block;color:var(--navy);margin-bottom:4px}
+  .vers{font-size:12.5px;color:var(--muted)}
+  footer{text-align:center;font-size:12px;color:var(--muted);padding:24px 16px 40px}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:16px;top:8px;background:#fff;color:var(--navy);padding:8px;z-index:10;border-radius:6px}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}.grid dt{margin-top:6px}header h1{font-size:18px}}
+  @media print{nav,.controls,.banner{display:none}section{display:block!important}.card .body{display:block}.card-head{cursor:default}body{background:#fff}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="wrap">
+    <h1>Admixing of Antibiotics &amp; Antifungals in Bone Cement and Stimulan</h1>
+    <p>Local antimicrobials in PMMA and calcium sulphate carriers for periprosthetic joint infection · Working reference · <b>Draft v2.0 · October 2026</b></p>
+  </div>
+</header>
+<main id="main" class="wrap">
+  <div class="banner" role="note">⚠️ <b>Working reference for protocol development — not approved for clinical use.</b> Doses, mixing steps and setting times are drawn from published evidence, project documents and manufacturer/practical charts; several sources disagree and the disagreements are shown rather than hidden. Every regimen must be reviewed by your PJI MDT (orthopaedics and ID/microbiology) and pharmacy/DTC, and checked against the SmPC and local policy. Admixing creates an unlicensed product.</div>
+
+  <nav id="nav" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
+    <button role="tab" data-tab="agents" aria-selected="false">Agents</button>
+    <button role="tab" data-tab="carriers" aria-selected="false">Carriers</button>
+    <button role="tab" data-tab="combos" aria-selected="false">Combinations</button>
+    <button role="tab" data-tab="technique" aria-selected="false">Technique</button>
+    <button role="tab" data-tab="governance" aria-selected="false">Governance</button>
+    <button role="tab" data-tab="safety" aria-selected="false">Safety</button>
+    <button role="tab" data-tab="refs" aria-selected="false">References</button>
+    <button role="tab" data-tab="about" aria-selected="false">About</button>
+  </nav>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="active" role="tabpanel">
+    <h2>Key positions</h2>
+    <p class="lead">A one-screen summary. Grades: A RCT/systematic review · B prospective cohort/registry · C retrospective cohort/case series · D in-vitro/biomechanical/animal · E expert opinion/case report/manufacturer data.</p>
+    <div class="kp">
+      <div><b>Commercial pre-mixed cement first</b>Use a manufactured antibiotic-loaded PMMA where it is suitable and available; admix only when the microbiology, allergy or supply situation means a commercial product is not appropriate. Document why. [1,28]</div>
+      <div><b>Empirical spacer default</b>Gentamicin-premixed PMMA with vancomycin hand-admixed (2 g typical; up to 4 g per 40 g for spacers). Hand-admixed vancomycin elutes more than pre-mixed dual cement. Covers ~85–90% of PJI pathogens. [3,4,5,6]</div>
+      <div><b>Mechanical ceiling</b>Keep total antibiotic ≤ ~4 g per 40 g (≈10% w/w) when cement is load-bearing (fixation). Strength falls with every gram above ~2 g and over time in vivo; spacers tolerate more but "20% dogma" is not evidence-based. [7,8,9,10]</div>
+      <div><b>Best comparative outcome data</b>VMA (vancomycin 4 g + meropenem 2 g + amphotericin B 200 mg / 40 g): recurrence 1.9% vs 17.7% for GV (p=0.006), retrospective cohort. Grade C. [11]</div>
+      <div><b>Never rifampicin in PMMA</b>Prevents polymerisation (soft, friable, discoloured cement). Use calcium sulphate instead if local rifampicin is wanted. [12,13]</div>
+      <div><b>Powder, not liquid</b>Prefer sterile powder preparations; liquids alter the powder–liquid ratio and weaken cement. Liquid amikacin is the documented exception, spacers only. [1,14]</div>
+      <div><b>Calcium sulphate (Stimulan)</b>Resorbs over weeks, ~10× higher local concentrations, no thermal exposure so heat-labile agents can be used; valuable in DAIR/single-stage. Monitor calcium and renal function. [15,16,17,18]</div>
+      <div><b>Stewardship applies locally too</b>Define the indication, choose the narrowest effective agent, justify the dose, document the plan. Vancomycin is not a routine addition without microbiological or patient-specific justification. [1]</div>
+    </div>
+
+    <h2>Decision pathway (working-group structure)</h2>
+    <div class="box">
+      <ol class="std">
+        <li><b>Microbiology result → ID/micro recommendation.</b> Agent chosen against cultures, susceptibility, previous microbiology, allergy, renal function and the systemic plan. [1,28]</li>
+        <li><b>MDT decision (orthopaedics + ID/microbiology ± pharmacy).</b> Record indication, microbiological target, cement role (fixation / structural / non-load-bearing spacer), agent, dose per 40 g, number of mixes, monitoring plan, and why commercial cement is unsuitable. [1,28]</li>
+        <li><b>Surgical planning.</b> Prescribe and supply pre-operatively; sterile parenteral preparation labelled "for addition to PMMA bone cement only"; written preparation instructions available before the case; patient informed that use is outside product licence. [1,28,29]</li>
+        <li><b>Mixing in theatre.</b> Fractionated powder-to-powder mixing before monomer (grind crystalline powders); hand-mix spacers, vacuum-mix fixation cement; document cement, agent, dose per mix, mixes, total dose, method. See Technique. [13,20,28]</li>
+        <li><b>Monitoring and audit.</b> Renal function and toxicity monitoring where indicated; mechanical complications recorded; indication, organism, agent, dose, complications and outcome audited. See Safety. [1,29]</li>
+      </ol>
+    </div>
+
+    <h2>Related evidence worth knowing</h2>
+    <div class="box">
+      <ul class="tight">
+        <li><b>Dose ranges by consensus.</b> The 2013 International Consensus lists per-40 g spacer ranges (vancomycin 0.5–4 g, meropenem 0.5–4 g, daptomycin 2 g, ceftazidime 2 g, cefotaxime 2 g, cefuroxime 1.5–2 g, aztreonam 4 g, voriconazole 300–600 mg); a 2012 review of published spacer regimens found wide variation and no agreed optimum. [2,66]</li>
+        <li><b>Local therapy and systemic duration.</b> A Sheffield series of 299 two-stage hip revisions using high local antibiotic concentrations in cement beads with a median of five days of systemic antibiotics reported 91% success after reimplantation; the SOLARIO non-inferiority trial (≤7 days vs ≥4 weeks systemic therapy with local antibiotics) will inform this further. [64,65]</li>
+        <li><b>One-stage vs two-stage.</b> The UK INFORM trial found no superiority of two-stage over single-stage revision for hip PJI at 18 months; single-stage definitive fixation needs preserved cement strength, so admixing must stay conservative. [67]</li>
+        <li><b>Topical vancomycin powder is a different question.</b> Evidence for loose vancomycin powder in primary arthroplasty is inconclusive and outside the scope of this reference. [68]</li>
+      </ul>
+    </div>
+
+    <h2>Scope note</h2>
+    <div class="note">The UK working group on local antimicrobials in bone cement (June 2026) agreed that its first governance guideline covers <b>PMMA only</b>, keeps cement generic (no brand names) and recommends commercial pre-mixed cement where available. Calcium sulphate (Stimulan) is <b>retained in this reference</b> because practice is widespread and the practical charts are useful, but there is no consensus position on it yet and its content here is largely Grade D/E. Brand names appear in the Carriers tab for identification only.</div>
+  </section>
+
+  <!-- AGENTS -->
+  <section id="agents" role="tabpanel">
+    <h2>Agents</h2>
+    <p class="lead">PMMA doses are per 40 g cement, split into <b>fixation</b> (load-bearing) and <b>spacer</b> (non-load-bearing) use where sources distinguish them. Calcium sulphate doses are per 10 cc Stimulan Rapid Cure unless stated. Expand an agent for elution, stability, mixing and linked evidence.</p>
+    <div class="legend" aria-hidden="true">
+      Evidence grade:
+      <span><b class="grade gA">A</b> RCT/SR</span>
+      <span><b class="grade gB">B</b> prospective/registry</span>
+      <span><b class="grade gC">C</b> retrospective/series</span>
+      <span><b class="grade gD">D</b> in vitro/animal</span>
+      <span><b class="grade gE">E</b> opinion/case/manufacturer</span>
+    </div>
+    <div class="controls">
+      <label class="skip" for="search">Search agents</label>
+      <input id="search" type="search" placeholder="Search agent, class, organism, note…">
+      <label class="skip" for="ftype">Type</label>
+      <select id="ftype"><option value="">All types</option><option value="ab">Antibiotics</option><option value="af">Antifungals</option></select>
+      <label class="skip" for="fcarrier">Carrier</label>
+      <select id="fcarrier"><option value="">Any carrier</option><option value="pmma">PMMA</option><option value="caso">Calcium sulphate</option></select>
+      <label class="skip" for="fgrade">Evidence grade</label>
+      <select id="fgrade"><option value="">Any grade</option><option value="A">A only</option><option value="B">A–B</option><option value="C">A–C</option><option value="D">A–D</option></select>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <div id="list"></div>
+  </section>
+
+  <!-- CARRIERS -->
+  <section id="carriers" role="tabpanel">
+    <h2>Carriers</h2>
+    <p class="lead">PMMA cements and bioabsorbable carriers used for local delivery in PJI. Brand names are for identification; the working-group standard is brand-neutral. Elution differs between cements (Palacos-type generally elute more than Simplex-type) but structural requirements still govern choice. [1,21]</p>
+    <div class="tablewrap"><table id="carrierTable"></table></div>
+  </section>
+
+  <!-- COMBINATIONS -->
+  <section id="combos" role="tabpanel">
+    <h2>Combinations</h2>
+    <p class="lead">Adding a second agent increases porosity and usually the elution of both ("porogen" effect), at a mechanical cost. Multi-agent, high-dose loading is for spacers, not definitive fixation. [7,9,22]</p>
+    <div class="tablewrap"><table id="comboTable"></table></div>
+  </section>
+
+  <!-- TECHNIQUE -->
+  <section id="technique" role="tabpanel">
+    <h2>Theatre technique</h2>
+    <div class="box">
+      <h3>PMMA — standard operating steps</h3>
+      <ol class="std">
+        <li>Confirm the MDT record, prescription (agent, formulation, dose per 40 g, number of mixes, total dose) and that written preparation instructions are in theatre. [1,28]</li>
+        <li>Pharmacy-supplied sterile parenteral <b>powder</b> with batch number / certificate; no tablets or capsules (different excipients); no liquid except documented liquid amikacin for spacers. [1,14]</li>
+        <li>Grind crystalline powders (e.g. vancomycin) to a fine, homogeneous particle size in a sterile bowl; poorly distributed crystals do not elute. [13,28]</li>
+        <li><b>Fractionated powder-to-powder mixing</b>: blend the antibiotic with the cement powder in a bowl <i>before</i> adding liquid monomer. Do not dry-homogenise powder inside a cartridge mixing system — it scratches the cartridge and sheds particles. [13,20,28]</li>
+        <li>Add monomer per manufacturer instructions. <b>Spacers</b>: hand (atmospheric) mix to maximise porosity and elution. <b>Fixation cement</b>: vacuum mix to preserve strength. [1,13,19]</li>
+        <li>Do not add extra monomer (reduces elution). Optional: the "delayed addition" technique (adding vancomycin ~30 s after mixing starts) increased vancomycin elution by 25–52% in vitro. [23]</li>
+        <li>Record in the operation note: cement used, antimicrobial(s), dose per mix, number of mixes, total implanted dose, mixing method, and whether the cement was spacer or fixation. [1,29]</li>
+      </ol>
+      <div class="note"><b>Known practice variation:</b> one UK unit's pocket guide mixes cement liquid and powder first and then adds the antibiotic powder, and avoids vacuum mixing for all antibiotic cement [24]. The working-group position is fractionated powder-to-powder mixing before monomer (Kuhn protocol) unless a drug monograph or local protocol states otherwise [13,28]. Laboratory comparison found no mechanical or microbiological difference between careful manual admixing and commercial dual-antibiotic cement, but recommended limiting manual admixing to specific indications and preferring commercial mixtures. [20]</div>
+    </div>
+    <div class="box">
+      <h3>Calcium sulphate (Stimulan Rapid Cure) — general steps</h3>
+      <ol class="std">
+        <li>Select standard or Rapid Cure formulation; agent-specific steps and setting times are in each agent card (practical charts and Biocomposites technical letters). [25,26,27]</li>
+        <li>Powders (vancomycin, teicoplanin, flucloxacillin, fluconazole, voriconazole): mix with Stimulan powder first (~20 s), then add the mixing solution. Some agents set in 2 minutes or less — have the bead mat ready. [25,26]</li>
+        <li>Agents added to the paste (meropenem, linezolid, ceftazidime, piperacillin-tazobactam, caspofungin): mix Stimulan powder and solution first, then fold in the agent. [25,26,27]</li>
+        <li>Liquid aminoglycosides (gentamicin / tobramycin 240 mg = 6 mL): use the drug solution <i>instead of</i> the Stimulan mixing solution. [24]</li>
+        <li>Where saline pre-mixing is specified (amikacin, daptomycin, ertapenem, voriconazole, amphotericin B), respect the stated pre-mix time — "no longer". [25,27]</li>
+        <li>Deliver as beads or paste into dead space while workable; document as for PMMA. Post-op: serum calcium day 3, day 7, week 3; expect aseptic wound drainage. [16,17,18]</li>
+      </ol>
+      <div class="note">Setting times vary with manufacturer of the drug, dose and theatre temperature; the ability to mix and set does not imply safety or efficacy (manufacturer caveat). Tablets/capsules are not recommended in calcium sulphate (may leave a nidus; IV clindamycin did not set). [25,26,27]</div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section id="governance" role="tabpanel">
+    <h2>Governance and standards</h2>
+
+    <div class="box">
+      <h3>Good-practice framework for antimicrobial-loaded PMMA (JAC 2026 Viewpoint) [1]</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Workflow</th><th>Good-practice consideration</th><th>Rationale</th></tr></thead>
+        <tbody>
+          <tr><td>Deliberation (pre-op planning)</td><td>Define indication and microbiological intent before cement selection; apply stewardship principles locally; plan, prescribe and supply pre-operatively.</td><td>Separates prophylaxis from therapy; local delivery must be justified by drug, dose and method; reduces intra-operative delay and unplanned broad-spectrum admixture.</td></tr>
+          <tr><td>Drug (selection)</td><td>Use commercially manufactured antimicrobial-loaded PMMA where suitable; when bespoke therapy is needed select by microbiology, allergy, renal risk, local resistance, licensing and practice; use PMMA-specific guidance; prefer powder over liquid; avoid agents with poor thermal stability, poor elution or adverse effects on polymerisation.</td><td>Better-characterised handling, dosing, elution and mechanics; liquids impair polymerisation; some agents are inactivated by curing or compromise setting.</td></tr>
+          <tr><td>Dosing (mechanical safety)</td><td>Conservative doses when PMMA is used for fixation or structural support.</td><td>Preserves mechanical properties and reduces systemic toxicity risk.</td></tr>
+          <tr><td>Delivery (cement and technique)</td><td>Select cement type for the intended balance of elution vs mechanical demand; standardise and document mixing technique and quantities.</td><td>Palacos-type cements elute more than Simplex-type; porosity, powder–liquid ratio and technique influence elution and strength.</td></tr>
+          <tr><td>Delivery (alternative carriers)</td><td>Consider calcium sulphate, ceramics or other carriers where PMMA is unsuitable for the agent or objective.</td><td>Different release characteristics, but no fixation function.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="vers">Framework intended to support MDT decision-making; not a formal guideline. The same paper notes AKI after high-dose spacers in frail or renally impaired patients, loss of spacer strength over six weeks, and theoretical resistance selection from prolonged sub-inhibitory elution.</p>
+    </div>
+
+    <div class="box">
+      <h3>Criteria for antimicrobial-loaded cement — regional joint-formulary model adopted by the working group as its starting template [28]</h3>
+      <p class="lead">All of the following must be met:</p>
+      <ul class="tight">
+        <li>Proven or strongly suspected PJI requiring a two-stage procedure with an antibiotic-loaded cement spacer, or antibiotic-loaded cement as fixation cement at the definitive procedure; <b>and</b></li>
+        <li>the microbiology is such that a commercially available cement is not appropriate; <b>and</b></li>
+        <li>the wound has been appropriately managed (devitalised tissue and bone debrided or amputated); <b>and</b></li>
+        <li>the antimicrobial choice has been recommended by ID/microbiology; <b>and</b></li>
+        <li>the decision, cement and antimicrobial were determined by the orthopaedic MDT with an ID/microbiology consultant present; <b>and</b></li>
+        <li>PMMA and the antimicrobial are not contraindicated (manufacturer guidance, allergy); <b>and</b></li>
+        <li>the patient agrees to attend follow-up as defined by the orthopaedic and infection services.</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h3>UK regulatory framework (summary) [29]</h3>
+      <ul class="tight">
+        <li>Adding an antimicrobial to a CE/UKCA-marked cement or carrier creates a new, unlicensed product. No manufacturer's instructions permit admixing as a labelled indication; manufacturers provide compatibility data on request.</li>
+        <li>Lawful routes: <b>Section 10 exemption</b> (Medicines Act 1968, preserved under HMR 2012) — preparation under pharmacist supervision to a prescriber's specification for a particular patient, which covers theatre admixing; or a <b>Manufacturer's Specials licence</b> for larger-scale GMP assembly.</li>
+        <li>MHRA Guidance Note 14 (unlicensed "specials"): bona fide special clinical need, prescriber responsibility, documented audit trail, informed consent.</li>
+        <li>A DTC-approved admixing formulary pre-authorises named regimens, standardises consent and documentation, and removes per-case unlicensed-medicine forms; agents outside the list (antifungals, daptomycin, etc.) still need individual authorisation.</li>
+        <li>Supply: antimicrobial vials via hospital pharmacy under parenteral-stock controls, not via device channels; theatre top-up stock logged; Yellow Card reporting for adverse events.</li>
+        <li>Related frameworks: NICE NG125 (antibiotic-loaded cement for prophylaxis in cemented arthroplasty); BOA/BASK/BHS PJI best practice (spacers in two-stage revision); NHS England commissioning policy mandating MDT for revision PJI; SPS unlicensed-medicines guidance.</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h3>Working-group decisions (first meeting, June 2026) [28]</h3>
+      <ul class="tight">
+        <li>Two-tier output: a short governance guideline structured around the decision pathway, plus RNOH-led drug monographs (systematic review + modified Delphi; meropenem nearly complete, daptomycin and an antifungal next).</li>
+        <li>Scope PMMA only for now; cement kept generic; commercial pre-mixed cement recommended where available (also covers supply shortages); start with ~4–5 antimicrobials plus one antifungal.</li>
+        <li>Practical "how to mix" guidance and an explicit "do not add" list (rifampicin) to be included; professional endorsement to be sought so that DTCs recognise the guidance; review roughly every two years.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section id="safety" role="tabpanel">
+    <h2>Safety monitoring</h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Parameter</th><th>When</th><th>Thresholds / actions</th><th>Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Serum creatinine (AKI risk)</td><td>Baseline, then daily days 1–7 after high-dose spacer or large-volume calcium sulphate</td><td>Rise &gt;26 µmol/L in 48 h or &gt;1.5× baseline: review nephrotoxins, consider nephrology. AKI reported in 4–27% after antibiotic-loaded spacers; risk higher with frailty, CKD, concurrent nephrotoxics, high aminoglycoside/vancomycin loads.</td><td>[30,31,32]</td></tr>
+        <tr><td>Serum vancomycin / aminoglycoside</td><td>Day 1 (and as indicated) when high-dose aminoglycoside or vancomycin is in cement or calcium sulphate, especially bilateral or large volumes</td><td>Systemic levels from PMMA are usually &lt;1–5 mg/L; calcium-sulphate vancomycin produced measurable blood levels. Gentamicin/tobramycin trough &gt;2 mg/L warrants review.</td><td>[15,32]</td></tr>
+        <tr><td>Serum calcium (calcium sulphate only)</td><td>Day 3, day 7, week 3</td><td>Severe symptomatic hypercalcaemia is uncommon but reported (including altered mental status); risk rises with volume, renal impairment and immobility. Treat symptomatic Ca²⁺ &gt;2.9 mmol/L.</td><td>[16,17]</td></tr>
+        <tr><td>Wound drainage (calcium sulphate)</td><td>Daily clinical review</td><td>Aseptic drainage is common with calcium sulphate; manage conservatively; reseal if excessive.</td><td>[15,16]</td></tr>
+        <tr><td>Antifungal levels</td><td>As advised by ID/micro when systemic azoles are co-prescribed</td><td>Fluconazole and voriconazole serum assays are available from the Antimicrobial Reference Laboratory (North Bristol NHS Trust); pre-dose and 2-h post-dose samples recommended.</td><td>[33]</td></tr>
+        <tr><td>Dose cap in high-risk patients</td><td>Pre-operative risk stratification</td><td>Project guide suggests limiting total antibiotic to ≤3 g per 40 g batch in CKD, age &gt;70, pre-op Hb &lt;100 g/L, concurrent nephrotoxics or NSAIDs — expert opinion, not trial-derived.</td><td>[34]</td></tr>
+        <tr><td>Mechanical complications</td><td>Throughout spacer interval</td><td>Dual-antibiotic spacers lose strength over six weeks; plan spacer design, protected weight-bearing and cement choice accordingly; record fractures/dislocations.</td><td>[1,8]</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note">Consent: tailored addition is outside product licensing — discuss rationale, risks (renal, mechanical, local toxicity) and follow-up, and document. [1,29]</div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section id="refs" role="tabpanel">
+    <h2>References</h2>
+    <p class="lead">Vancouver style. Every PubMed-indexed item was verified against the PubMed record in October 2026 and links to the DOI (publisher) with PMID/PMC where available. Items marked <i>project document</i> are unpublished working-group files held in the project Evidence folder.</p>
+    <div id="refList"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" role="tabpanel">
+    <h2>About this reference</h2>
+    <div class="box">
+      <p>This single-file web reference consolidates the working evidence base on adding antibiotics and antifungals to <b>PMMA bone cement</b> and <b>calcium sulphate carriers (Stimulan, Cerament)</b> for periprosthetic joint infection. It is intended as a shareable quick reference for UK PJI teams (including UHCW) while formal national guidance and drug monographs are developed.</p>
+      <p><b>How to use:</b> browse or search Agents and expand any card for doses (fixation vs spacer), elution, stability, mixing steps and linked evidence. Carriers and Combinations summarise cement/carrier choice and multi-agent regimens. Technique, Governance and Safety carry the process content from the JAC 2026 framework, the regional formulary criteria and the project SOP.</p>
+      <p><b>Sources:</b> the graded project evidence review; the Antimicrobial Mixing Guide 2025; the June 2026 Evidence Synthesis; working-group agenda and minutes (June 2026); Azamgarhi et al., JAC 2026; Sheffield pocket guide (Sharrock, Babu, Petrie, v1.0 Jan 2026); Stimulan practical mixing charts and Biocomposites technical letters (2016, 2019, 2023); North Bristol antifungal assay information; and the primary papers listed under References.</p>
+      <h3>Version history</h3>
+      <ul class="tight">
+        <li><b>v2.0 — October 2026.</b> Added Overview, Technique, Governance and Safety tabs (JAC 2026 framework, regional formulary criteria, UK regulatory summary, working-group decisions, monitoring table). Added aztreonam, cefotaxime/cefuroxime, tigecycline in PMMA, doxycycline and co-amoxiclav charts; fixation vs spacer dosing; dose discrepancies flagged on each card. Reference list rebuilt and re-verified against PubMed (several PMIDs in v1.0 resolved to unrelated papers and have been corrected); Vancouver format with DOI/PMID. Accessibility: keyboard-operable tabs and cards, labelled controls, print stylesheet.</li>
+        <li><b>v1.0 — June 2026.</b> Initial release: Agents, Carriers, Combinations, References, About.</li>
+      </ul>
+      <p class="vers">Self-contained HTML — no external scripts, fonts or network calls except the outbound reference links. Hosted on GitHub Pages; the repository holds the source so corrections can be proposed as issues or pull requests. Maintained by the compiler; review cadence ~2-yearly or sooner if new evidence, supply or safety concerns arise.</p>
+    </div>
+  </section>
+</main>
+<footer>Admixing of antibiotics &amp; antifungals in cement and Stimulan · Working reference · Draft v2.0 · October 2026 · Not for clinical use</footer>
+
+<script>
+// ---------- References (verified against PubMed, Oct 2026) ----------
+const REFS=[
+ {n:1,t:"Azamgarhi T, Gbejuade H, Hamilton RA, Warren S, Darley ESR, Gilchrist M, et al. Antimicrobial-loaded PMMA bone cement: time for good practice recommendations. J Antimicrob Chemother. 2026;81(9):dkag261.",doi:"10.1093/jac/dkag261",pmid:"42623116",pmc:"PMC13492082"},
+ {n:2,t:"Parvizi J, Gehrke T, Chen AF. Proceedings of the International Consensus on Periprosthetic Joint Infection. Bone Joint J. 2013;95-B(11):1450-2.",doi:"10.1302/0301-620X.95B11.33135",pmid:"24151261"},
+ {n:3,t:"Frew NM, Cannon T, Nichol T, Smith TJ, Stockley I. Comparison of the elution properties of commercially available gentamicin and bone cement containing vancomycin with 'home-made' preparations. Bone Joint J. 2017;99-B(1):73-77.",doi:"10.1302/0301-620X.99B1.BJJ-2016-0566.R1",pmid:"28053260"},
+ {n:4,t:"Lunz A, Schonhoff M, Omlor GW, Knappe K, Bangert Y, Lehner B, et al. Enhanced antibiotic release from bone cement spacers utilizing dual antibiotic loading with elevated vancomycin concentrations in two-stage revision for periprosthetic joint infection. Int Orthop. 2023;47(11):2655-2661.",doi:"10.1007/s00264-023-05922-7",pmid:"37566227",pmc:"PMC10602962"},
+ {n:5,t:"Boelch SP, Jordan MC, Arnholdt J, Rudert M, Luedemann M, Steinert AF. Loading with vancomycin does not decrease gentamicin elution in gentamicin premixed bone cement. J Mater Sci Mater Med. 2017;28(7):104.",doi:"10.1007/s10856-017-5915-6",pmid:"28534287"},
+ {n:6,t:"Boelch SP, Rueckl K, Fuchs C, Jordan M, Knauer M, Steinert A, et al. Comparison of elution characteristics and compressive strength of biantibiotic-loaded PMMA bone cement for spacers: Copal Spacem with gentamicin and vancomycin versus Palacos R+G with vancomycin. Biomed Res Int. 2018;2018:4323518.",doi:"10.1155/2018/4323518",pmid:"30410931",pmc:"PMC6206524"},
+ {n:7,t:"Lee SH, Tai CL, Chen SY, Chang CH, Chang YH, Hsieh PH. Elution and mechanical strength of vancomycin-loaded bone cement: in vitro study of the influence of brand combination. PLoS One. 2016;11(11):e0166545.",doi:"10.1371/journal.pone.0166545",pmid:"27855203"},
+ {n:8,t:"Lunz A, Knappe K, Omlor GW, Schonhoff M, Renkawitz T, Jaeger S. Mechanical strength of antibiotic-loaded PMMA spacers in two-stage revision surgery. BMC Musculoskelet Disord. 2022;23(1):945.",doi:"10.1186/s12891-022-05895-5",pmid:"36309657",pmc:"PMC9617327"},
+ {n:9,t:"Gálvez-López R, Peña-Monje A, Antelo-Lorenzo R, Guardia-Olmedo J, Moliz J, Hernández-Quero J, et al. Elution kinetics, antimicrobial activity, and mechanical properties of 11 different antibiotic loaded acrylic bone cement. Diagn Microbiol Infect Dis. 2014;78(1):70-4.",doi:"10.1016/j.diagmicrobio.2013.09.014",pmid:"24231380"},
+ {n:10,t:"Kim S, Bishop AR, Squire MW, Rose WE, Ploeg HL. Mechanical, elution, and antibacterial properties of Simplex bone cement loaded with vancomycin. J Mech Behav Biomed Mater. 2020;103:103588.",doi:"10.1016/j.jmbbm.2019.103588",pmid:"32090917"},
+ {n:11,t:"Yang C, Wang J, Yin Z, Wang Q, Zhang X, Jiang Y, et al. A sophisticated antibiotic-loading protocol in articulating cement spacers for the treatment of prosthetic joint infection: a retrospective cohort study. Bone Joint Res. 2019;8(11):526-534.",doi:"10.1302/2046-3758.811.BJR-2018-0339.R3",pmid:"31832172",pmc:"PMC6888737"},
+ {n:12,t:"Sanz-Ruiz P, Carbó-Laso E, Del Real-Romero JC, Arán-Ais F, Ballesteros-Iglesias Y, Paz-Jiménez E, et al. Microencapsulation of rifampicin: a technique to preserve the mechanical properties of bone cement. J Orthop Res. 2018;36(1):459-466.",doi:"10.1002/jor.23614",pmid:"28543702"},
+ {n:13,t:"Local antimicrobial delivery in periprosthetic joint infection: an evidence review for consensus guideline development (graded master review). 2026. Project document.",proj:true},
+ {n:14,t:"Tai DBG, Brinkman NJ, Abu Saleh O, Osmon DR, Berbari EF, Tande AJ, et al. Safety and tolerability of liquid amikacin in antibiotic-loaded bone cement: a case series. J Bone Jt Infect. 2021;6(5):147-150.",doi:"10.5194/jbji-6-147-2021",pmid:"34084704",pmc:"PMC8131961"},
+ {n:15,t:"Wahl P, Guidi M, Benninger E, Rönn K, Gautier E, Buclin T, et al. The levels of vancomycin in the blood and the wound after the local treatment of bone and soft-tissue infection with antibiotic-loaded calcium sulphate as carrier material. Bone Joint J. 2017;99-B(11):1537-1544.",doi:"10.1302/0301-620X.99B11.BJJ-2016-0298.R3",pmid:"29092996"},
+ {n:16,t:"Vallon F, Meier C, Gautier E, Wahl P. The incidence of severe hypercalcaemia-induced mental status changes in patients treated with antibiotic-loaded calcium sulphate depot for orthopaedic infections. J Clin Med. 2022;11(16):4900.",doi:"10.3390/jcm11164900",pmid:"36013138"},
+ {n:17,t:"Jiang N, Liu GQ, Yang JJ, Lin QR, Hu YJ, Yu B. Is hypercalcemia a frequent complication following local use of calcium sulfate with antibiotics for the treatment of extremity posttraumatic osteomyelitis? A preliminary study. Biomed Res Int. 2019;2019:7315486.",doi:"10.1155/2019/7315486",pmid:"31049354"},
+ {n:18,t:"Maale GE, Eager JJ, Mohammadi DK, Calderon FA 2nd. Elution profiles of synthetic CaSO4 hemihydrate beads loaded with vancomycin and tobramycin. Eur J Drug Metab Pharmacokinet. 2020;45(4):547-555.",doi:"10.1007/s13318-020-00622-8",pmid:"32328932",pmc:"PMC7359161"},
+ {n:19,t:"Anagnostakos K, Meyer C. Antibiotic elution from hip and knee acrylic bone cement spacers: a systematic review. Biomed Res Int. 2017;2017:4657874.",doi:"10.1155/2017/4657874",pmid:"28656144"},
+ {n:20,t:"Humez M, Citak M, Luck S, Linke P, Gehrke T, Paul C, et al. Enhancing PMMA cements with manually added antimicrobial agents. APMIS. 2025;133(5):e70029.",doi:"10.1111/apm.70029",pmid:"40411307"},
+ {n:21,t:"Meeker DG, Cooper KB, Renard RL, Mears SC, Smeltzer MS, Barnes CL. Comparative study of antibiotic elution profiles from alternative formulations of polymethylmethacrylate bone cement. J Arthroplasty. 2019;34(7):1458-1461.",doi:"10.1016/j.arth.2019.03.008",pmid:"30935799"},
+ {n:22,t:"Nagy M, Jakaraddi C, Neal T, Jackson R, Navin A, Davidson JS, et al. Elution characteristics of gentamicin- and teicoplanin-loaded CMW1 and Palacos R bone cement. J Orthop. 2021;25:75-81.",doi:"10.1016/j.jor.2021.03.024",pmid:"33935435",pmc:"PMC8079329"},
+ {n:23,t:"Amin TJ, Lamping JW, Hendricks KJ, McIff TE. Increasing the elution of vancomycin from high-dose antibiotic-loaded bone cement: a novel preparation technique. J Bone Joint Surg Am. 2012;94(21):1946-51.",doi:"10.2106/JBJS.L.00014",pmid:"23014891"},
+ {n:24,t:"Sharrock M, Babu E, Petrie MJ. Intraoperative use of antimicrobials in bone cement and Stimulan: pocket guide v1.0. Sheffield Teaching Hospitals; 30 Jan 2026. Project document (local protocol).",proj:true},
+ {n:25,t:"Stimulan Rapid Cure practical mixing charts (Stimulan Mixing Info; STIMULAN CHART), agent-by-agent mixing steps and setting times. Project documents (practical theatre charts, unpublished).",proj:true},
+ {n:26,t:"Biocomposites Ltd. Technical letters on Stimulan with tigecycline (18 Apr 2016), daptomycin and tigecycline (31 Jan 2019), amphotericin B and caspofungin (21 Feb 2019), and caspofungin (7 Sep 2023). Keele: Biocomposites. Manufacturer correspondence (project Evidence folder).",proj:true},
+ {n:27,t:"Cooper JJ, Brayford MJ, Laycock PA. A new acoustic method to determine the setting time of calcium sulfate bone cement mixed with antibiotics. Biomed Mater. 2014;9(4):045006.",doi:"10.1088/1748-6041/9/4/045006",pmid:"24979245"},
+ {n:28,t:"UK working group on local antimicrobials in bone cement. Meeting agenda and minutes, first meeting, 9 June 2026. Project documents (unpublished).",proj:true},
+ {n:29,t:"Kozdryk J. Local antimicrobials in bone cement and bone antibiotic carriers: a comprehensive evidence-based guide for UK orthopaedic practice (Antimicrobial Mixing Guide), v1.0. May 2025. Project document — Part 13, UK regulatory and pharmacy governance framework.",proj:true},
+ {n:30,t:"Thomas TL, Kothari PD, Baker CM, Tarabichi S, Clark SC, Goh GS. High incidence of acute kidney injury following antibiotic-loaded spacer insertion for periprosthetic joint infection: an updated review of the literature. J Arthroplasty. 2024;39(2):549-558.e3.",doi:"10.1016/j.arth.2023.08.055",pmid:"37634877"},
+ {n:31,t:"Chaudhry YP, LaGreca M, Hayes H, Papadelis E, Rao SS, Amin R. Acute kidney injury in the context of staged revision arthroplasty and the use of antibiotic-laden cement spacers: a systematic review. J Orthop Surg Res. 2023;18(1):340.",doi:"10.1186/s13018-023-03809-2",pmid:"37158949"},
+ {n:32,t:"Aeng ES, Shalansky KF, Lau TT, Zalunardo N, Li G, Bowie WR, et al. Acute kidney injury with tobramycin-impregnated bone cement spacers in prosthetic joint infections. Ann Pharmacother. 2015;49(11):1207-13.",doi:"10.1177/1060028015600176",pmid:"26269097"},
+ {n:33,t:"North Bristol NHS Trust, Severn Pathology. Test information: fluconazole (serum) — Antimicrobial Reference Laboratory. Accessed 27 May 2026.",u:"https://www.nbt.nhs.uk/severn-pathology/requesting/test-information/fluconazole"},
+ {n:34,t:"Kozdryk J. Antimicrobial Mixing Guide 2025, v1.0 — Part 12, safety monitoring protocol and high-risk patient identification. May 2025. Project document (expert synthesis).",proj:true},
+ {n:35,t:"Lenguerrand E, Whitehouse MR, Beswick AD, Kunutsor SK, Burston B, Porter M, et al. Risk factors associated with revision for prosthetic joint infection after hip replacement: a prospective observational cohort study. Lancet Infect Dis. 2018;18(9):1004-1014.",doi:"10.1016/S1473-3099(18)30345-1",pmid:"30056097"},
+ {n:36,t:"Agni NR, Costa ML, Achten J, Peckham N, Dutton SJ, Png ME, et al. High-dose dual-antibiotic loaded cement for hip hemiarthroplasty in the UK (WHiTE 8): a randomised controlled trial. Lancet. 2023;402(10397):196-202.",doi:"10.1016/S0140-6736(23)00962-5",pmid:"37354913"},
+ {n:37,t:"Humez M, Domann E, Thormann KM, Fölsch C, Strathausen R, Vogt S, et al. Daptomycin-impregnated PMMA cement against vancomycin-resistant germs: dosage, handling, elution, mechanical stability, and effectiveness. Antibiotics (Basel). 2023;12(11):1567.",doi:"10.3390/antibiotics12111567",pmid:"37998769",pmc:"PMC10668807"},
+ {n:38,t:"Chang Y, Chen WC, Hsieh PH, Chen DW, Lee MS, Shih HN, et al. In vitro activities of daptomycin-, vancomycin-, and teicoplanin-loaded polymethylmethacrylate against methicillin-susceptible, methicillin-resistant, and vancomycin-intermediate strains of Staphylococcus aureus. Antimicrob Agents Chemother. 2011;55(12):5480-4.",doi:"10.1128/AAC.05312-11",pmid:"21930872"},
+ {n:39,t:"Kuo FC, Yen SH, Peng KT, Wang JW, Lee MS. Methicillin-resistant staphylococcal periprosthetic joint infections can be effectively controlled by systemic and local daptomycin. BMC Infect Dis. 2016;16:48.",doi:"10.1186/s12879-016-1366-9",pmid:"26830838"},
+ {n:40,t:"Cortes NJ, Lloyd JM, Koziol L, O'Hara L. Successful clinical use of daptomycin-impregnated bone cement in two-stage revision hip surgery for prosthetic joint infection. Ann Pharmacother. 2013;47(1):e2.",doi:"10.1345/aph.1R486",pmid:"23324502"},
+ {n:41,t:"Eick S, Hofpeter K, Sculean A, Ender C, Klimas S, Vogt S, et al. Activity of fosfomycin- and daptomycin-containing bone cement on selected bacterial species being associated with orthopedic infections. Biomed Res Int. 2017;2017:2318174.",doi:"10.1155/2017/2318174",pmid:"28484708"},
+ {n:42,t:"Wang LH, Feng YD, Zhang XW, Jin L, Zhou FL, Xu GH. Elution and biomechanical properties of meropenem-loaded bone cement. Orthop Surg. 2021;13(8):2417-2422.",doi:"10.1111/os.13139",pmid:"34734478"},
+ {n:43,t:"Schmid M, Steiner O, Fasshold L, Goessler W, Holl AM, Kühn KD. The stability of carbapenems before and after admixture to PMMA-cement used for replacement surgery caused by Gram-negative bacteria. Eur J Med Res. 2020;25(1):34.",doi:"10.1186/s40001-020-00428-z",pmid:"32811560"},
+ {n:44,t:"Solomon AW, Stott PM, Duffy K, Kumar PG, Holliman RE, Bridle SH. Elution and antibacterial activity of meropenem from implanted acrylic bone cement. J Antimicrob Chemother. 2010;65(8):1834-5.",doi:"10.1093/jac/dkq196",pmid:"20519357"},
+ {n:45,t:"Carli AV, Sethuraman AS, Bhimani SJ, Ross FP, Bostrom MPG. Selected heat-sensitive antibiotics are not inactivated during polymethylmethacrylate curing and can be used in cement spacers for periprosthetic joint infection. J Arthroplasty. 2018;33(6):1930-1935.",doi:"10.1016/j.arth.2018.01.034",pmid:"29610009"},
+ {n:46,t:"Samara E, Moriarty TF, Decosterd LA, Richards RG, Gautier E, Wahl P. Antibiotic stability over six weeks in aqueous solution at body temperature with and without heat treatment that mimics the curing of bone cement. Bone Joint Res. 2017;6(5):296-306.",doi:"10.1302/2046-3758.65.BJR-2017-0276.R1",pmid:"28515059"},
+ {n:47,t:"Hsu YH, Hu CC, Hsieh PH, Shih HN, Ueng SWN, Chang Y. Vancomycin and ceftazidime in bone cement as a potentially effective treatment for knee periprosthetic joint infection. J Bone Joint Surg Am. 2017;99(3):223-231.",doi:"10.2106/JBJS.16.00290",pmid:"28145953"},
+ {n:48,t:"Drexler M, Dwyer T, Kuzyk PR, Kosashvilli Y, Abolghasemian M, Regev GJ, et al. The results of two-stage revision TKA using ceftazidime-vancomycin-impregnated cement articulating spacers in Tsukayama type II periprosthetic joint infections. Knee Surg Sports Traumatol Arthrosc. 2016;24(10):3122-3130.",doi:"10.1007/s00167-015-3753-y",pmid:"26272061"},
+ {n:49,t:"Márquez-Gómez M, Prats-Peinado L, Díaz JAM, et al. Clinical efficacy and safety of multiple high-dose antibiotic-loaded cement spacers in the two-stage revision of Gram-positive periprosthetic joint infection. Microorganisms. 2026;14(4):768.",doi:"10.3390/microorganisms14040768",pmid:"42075165",pmc:"PMC13119216"},
+ {n:50,t:"Hsieh PH, Chang YH, Chen SH, Ueng SW, Shih CH. High concentration and bioactivity of vancomycin and aztreonam eluted from Simplex cement spacers in two-stage revision of infected hip implants: a study of 46 patients at an average follow-up of 107 days. J Orthop Res. 2006;24(8):1615-21.",doi:"10.1002/jor.20214",pmid:"16788986"},
+ {n:51,t:"Koo KH, Yang JW, Cho SH, Song HR, Park HB, Ha YC, et al. Impregnation of vancomycin, gentamicin, and cefotaxime in a cement spacer for two-stage cementless reconstruction in infected total hip arthroplasty. J Arthroplasty. 2001;16(7):882-92.",doi:"10.1054/arth.2001.24444",pmid:"11607905"},
+ {n:52,t:"Gatin L, Mghir AS, Mouton W, Laurent F, Ghout I, Rioux-Leclercq N, et al. Colistin-containing cement spacer for treatment of experimental carbapenemase-producing Klebsiella pneumoniae prosthetic joint infection. Int J Antimicrob Agents. 2019;54(4):456-462.",doi:"10.1016/j.ijantimicag.2019.07.009",pmid:"31319190"},
+ {n:53,t:"Nichol T, Smith TJ, Townsend R, Stockley I, Akid R. Analysis of linezolid and tigecycline as candidates for local prophylaxis via antibiotic-loaded bone cement. J Antimicrob Chemother. 2017;72(2):410-416.",doi:"10.1093/jac/dkw410",pmid:"27798203"},
+ {n:54,t:"Abramowicz M, Trampuz A, Kühn KD. Tigecycline containing polymethylmethacrylate cement against MRSA, VRE, and ESBL: in vitro mechanical and microbiological investigations. Antibiotics (Basel). 2024;13(11):1102.",doi:"10.3390/antibiotics13111102",pmid:"39596795",pmc:"PMC11591008"},
+ {n:55,t:"Frank FA, Krampitz B, Steiner J, Strathausen R, Morgenstern M, Clauss M, et al. Evaluation and testing of polymethylmethacrylic (PMMA) bone cements with admixed amphotericin B. J Orthop Surg Res. 2025;20(1):151.",doi:"10.1186/s13018-025-05565-x",pmid:"39920816",pmc:"PMC11806800"},
+ {n:56,t:"Czuban M, Wulsten D, Wang L, Di Luca M, Trampuz A. Release of different amphotericin B formulations from PMMA bone cements and their activity against Candida biofilm. Colloids Surf B Biointerfaces. 2019;183:110406.",doi:"10.1016/j.colsurfb.2019.110406",pmid:"31401462"},
+ {n:57,t:"Pozzi L, Schläppi M, Livio F, Bernasconi E, Wahl P, Clauss M, et al. Joint fluid concentrations of amphotericin B after local application with calcium sulphate: report of 2 cases. APMIS. 2023;131(11):567-573.",doi:"10.1111/apm.13290",pmid:"36601878"},
+ {n:58,t:"Miller RB, McLaren AC, Pauken C, Clarke HD, McLemore R. Voriconazole is delivered from antifungal-loaded bone cement. Clin Orthop Relat Res. 2013;471(1):195-200.",doi:"10.1007/s11999-012-2463-8",pmid:"22782573",pmc:"PMC3528905"},
+ {n:59,t:"Krampitz B, Steiner J, Trampuz A, Kühn KD. Voriconazole admixed with PMMA: impact on mechanical properties and efficacy. Antibiotics (Basel). 2023;12(5):848.",doi:"10.3390/antibiotics12050848",pmid:"37237751",pmc:"PMC10215076"},
+ {n:60,t:"Butcher MC, Brown JL, Hansom D, Wilson-van Os R, Delury C, Laycock PA, et al. Assessing the bioactive profile of antifungal-loaded calcium sulfate against fungal biofilms. Antimicrob Agents Chemother. 2021;65(6):e02551-20.",doi:"10.1128/AAC.02551-20",pmid:"33753336"},
+ {n:61,t:"Grimsrud C, Raven R, Fothergill AW, Kim HT. The in vitro elution characteristics of antifungal-loaded PMMA bone cement and calcium sulfate bone substitute. Orthopedics. 2011;34(8):e378-81.",doi:"10.3928/01477447-20110627-05",pmid:"21815580"},
+ {n:62,t:"Levack AE, Turajane K, Driscoll DA, Nishimura S, Carli AV, Bostrom MP, et al. Identifying alternative antibiotics that elute from calcium sulfate beads for treatment of orthopedic infections. J Orthop Res. 2022;40(5):1143-1153.",doi:"10.1002/jor.25135",pmid:"34191350"},
+ {n:63,t:"McNally MA, Ferguson JY, Lau AC, Diefenbeck M, Scarborough M, Ramsden AJ, et al. Single-stage treatment of chronic osteomyelitis with a new absorbable, gentamicin-loaded, calcium sulphate/hydroxyapatite biocomposite: a prospective series of 100 cases. Bone Joint J. 2016;98-B(9):1289-96.",doi:"10.1302/0301-620X.98B9.38057",pmid:"27587534"},
+ {n:64,t:"Petrie MJ, Panchani S, Al-Einzy M, Partridge D, Harrison TP, Stockley I. Systemic antibiotics are not required for successful two-stage revision hip arthroplasty. Bone Joint J. 2023;105-B(5):511-517.",doi:"10.1302/0301-620X.105B5.BJJ-2022-0373.R2",pmid:"37121584"},
+ {n:65,t:"Dudareva M, Kümin M, Vach W, Kaier K, Ferguson J, McNally M, et al. Short or Long Antibiotic Regimes in Orthopaedics (SOLARIO): a randomised controlled open-label non-inferiority trial of duration of systemic antibiotics in adults with orthopaedic infection treated operatively with local antibiotic therapy. Trials. 2019;20(1):693.",doi:"10.1186/s13063-019-3832-3",pmid:"31815653"},
+ {n:66,t:"Iarikov D, Demian H, Rubin D, Alexander J, Nambiar S. Choice and doses of antibacterial agents for cement spacers in treatment of prosthetic joint infections: review of published studies. Clin Infect Dis. 2012;55(11):1474-80.",doi:"10.1093/cid/cis735",pmid:"22918993"},
+ {n:67,t:"Blom AW, Lenguerrand E, Strange S, Noble SM, Beswick AD, Burston A, et al. Clinical and cost effectiveness of single stage compared with two stage revision for hip prosthetic joint infection (INFORM): pragmatic, parallel group, open label, randomised controlled trial. BMJ. 2022;379:e071281.",doi:"10.1136/bmj-2022-071281",pmid:"36316046"},
+ {n:68,t:"Mancino F, Gant V, Meek DRM, Haddad FS. Vancomycin powder in total joint replacement: what is the evidence, and is it good enough to support its routine use? Bone Joint J. 2023;105-B(8):833-836.",doi:"10.1302/0301-620X.105B8.BJJ-2023-0675"}
+];
+
+// ---------- Agents ----------
+// pmmaFix / pmmaSpacer: dose per 40 g PMMA; caso: per 10 cc Stimulan Rapid Cure unless stated.
+const AGENTS=[
+ {name:"Vancomycin",cls:"Glycopeptide — Gram-positive incl. MRSA/MRSE, ampicillin-resistant enterococci",type:"ab",carriers:["pmma","caso"],grade:"B",
+  pmmaFix:"1–2 g (0.5 g gentamicin pre-loaded + 2 g vancomycin is the usual one-stage limit)",pmmaSpacer:"2–4 g (ICM range 0.5–4 g; 4 g in gentamicin-premixed cement is a common UK spacer recipe)",
+  caso:"1 g powder / 10 cc (≈10% w/w)",
+  elution:"Biphasic burst: spacer-fluid levels >1000 mg/L on day 1 falling to 10–50 mg/L by week 2; hand-admixed vancomycin elutes more than industrially pre-mixed; adding vancomycin does not reduce gentamicin elution. Compressive strength falls with dose and after elution ageing; 2 g in Simplex fell below ISO 5833 in one study.",
+  thermal:"Stable through polymerisation",set:"PMMA: standard. Stimulan: 3–5 min",
+  mix:"PMMA: grind, blend powder-to-powder in a bowl before monomer. Stimulan: mix Stimulan powder + vancomycin 20 s, add mixing solution, mix 20–30 s, onto bead mat (sets 3–5 min).",
+  flag:"Stewardship: not a routine addition without microbiological or patient-specific justification [1]. Sources differ on the 'usual' PMMA dose (2 g vs 4 g per 40 g) — the higher dose is for spacers only.",
+  refs:[1,2,3,4,5,6,7,10,15,18]},
+ {name:"Gentamicin",cls:"Aminoglycoside — Gram-negative + staphylococci (resistance 28–56% in some PJI series)",type:"ab",carriers:["pmma","caso"],grade:"A",
+  pmmaFix:"0.5–1 g (usually factory pre-loaded)",pmmaSpacer:"0.5–1 g pre-loaded; additional hand-loading rarely needed",
+  caso:"240 mg liquid (3 × 80 mg ampoules = 6 mL) — use instead of the Stimulan mixing solution",
+  elution:"Consistently efficient elutor; burst >100 mg/L day 1 then sustained low-level release for weeks; aminoglycoside-containing combinations improve partner-drug elution. Registry and RCT data for pre-loaded cement in primary arthroplasty; minimal mechanical impact at ≤1 g.",
+  thermal:"Highly stable",set:"As cement. Stimulan: 3–5 min",
+  mix:"Usually factory pre-loaded; combine with vancomycin as GV. Stimulan: add 6 mL gentamicin to 10 cc powder, mix 30 s (no Stimulan liquid); with vancomycin 1 g: mix vancomycin + powder first, then add gentamicin liquid, mix 30 s, bead mat quickly.",
+  refs:[1,2,5,24,35,36]},
+ {name:"Tobramycin",cls:"Aminoglycoside — superior anti-pseudomonal activity",type:"ab",carriers:["pmma","caso"],grade:"C",
+  pmmaFix:"1 g",pmmaSpacer:"1–4 g (ICM 0.5–4 g)",
+  caso:"240 mg liquid (6 mL) — set 5–15 min; or 1.2 g powder — set 10–20 min; often with 1 g vancomycin",
+  elution:"Standard component of the McPherson Stimulan regimen with vancomycin; sustained release from CaSO4 beads. PMMA elution lower than gentamicin from Palacos-type cement; AKI reported with high-dose tobramycin spacers.",
+  thermal:"Stable",set:"As cement. Stimulan: 5–20 min",
+  mix:"PMMA: powder-to-powder (UK sterile powder often imported as a special). Stimulan: add 6 mL tobramycin to 10 cc powder, mix 30 s (no Stimulan liquid); powder form: mix powder + liquid, add 1.2 g, mix 30 s.",
+  refs:[2,18,21,24,32]},
+ {name:"Daptomycin",cls:"Cyclic lipopeptide — Gram-positive incl. MRSA, VRE; biofilm activity",type:"ab",carriers:["pmma","caso"],grade:"C",
+  pmmaFix:"1 g",pmmaSpacer:"1.5–2 g (1.5 g/40 g: good elution, effectiveness and mechanical stability in vitro; ICM 2 g; 0.5 g shows no activity)",
+  caso:"250 mg / 5 cc (Biocomposites) ≈ 500 mg / 10 cc (STH); practical charts also list 1 g / 10 cc (wet mix, 30+ min)",
+  elution:"In-vitro elution and mechanical stability acceptable at clinically relevant doses; synergy with gentamicin vs MRSE biofilm; clinical series and case reports of success in MRSA/CoNS PJI. Expensive. Laboratory data should not be read as clinical proof for all combinations [1].",
+  thermal:"Stable",set:"Stimulan: 5–10 min (250 mg/5 cc) to 25–30+ min (1 g with saline)",
+  mix:"PMMA: powder-to-powder. Stimulan (Biocomposites): 3.5 mL saline to 5 cc powder, pre-mix 75–80 s, add 250 mg, mix 30 s, bead mat. STH: 7 mL saline to 10 cc, 80 s, add 500 mg, 30 s. With gentamicin 240 mg: powder + liquid, add daptomycin + gentamicin, 20 s (set ~25 min).",
+  flag:"Stimulan dose varies three-fold between sources (250 mg/5 cc, 500 mg/10 cc, 1 g/10 cc) — confirm locally before adoption.",
+  refs:[1,2,24,25,26,37,38,39,40,41]},
+ {name:"Meropenem",cls:"Carbapenem — very broad Gram-negative incl. Pseudomonas, ESBL, AmpC",type:"ab",carriers:["pmma","caso"],grade:"C",
+  pmmaFix:"1–2 g",pmmaSpacer:"2–4 g (4 g/40 g best in-vitro performance; 6 g did not reduce biomechanics; 5 g used in a single-stage case; ICM 0.5–4 g)",
+  caso:"1 g powder / 10 cc",
+  elution:"Component of VMA (porogen — improves vancomycin elution). Carbapenems retain ~70–90% after admixture; elution and activity are best in the first ~7 days then decline. Monograph nearly complete (RNOH group).",
+  thermal:"Adequate (partial loss)",set:"PMMA: standard. Stimulan: ~10 min; with gentamicin liquid up to 30 min",
+  mix:"PMMA: powder-to-powder. Stimulan: mix powder + liquid to paste, add 1 g meropenem, mix 10 s. With gentamicin 240 mg: 6 mL gentamicin to powder, 60 s, add meropenem, 55 s (no Stimulan liquid). With linezolid 750 mg: add both to paste (set ~20 min).",
+  refs:[2,11,24,25,28,42,43,44,45]},
+ {name:"Teicoplanin",cls:"Glycopeptide — Gram-positive; longer half-life than vancomycin",type:"ab",carriers:["pmma","caso"],grade:"D",
+  pmmaFix:"Not established",pmmaSpacer:"2–4 g (2 g studied in vitro)",
+  caso:"400 mg powder / 10 cc",
+  elution:"Elution enhanced when combined with gentamicin in CMW1; in Palacos R, gentamicin increased gentamicin elution but reduced teicoplanin elution. Active in vitro against MSSA/MRSA/VISA when loaded in PMMA.",
+  thermal:"Stable",set:"Stimulan: <5 min (sets fast)",
+  mix:"PMMA: powder-to-powder. Stimulan: mix teicoplanin + Stimulan powder, add liquid, mix 20 s, bead mat promptly.",
+  refs:[22,25,38]},
+ {name:"Clindamycin",cls:"Lincosamide — Gram-positive, anaerobes",type:"ab",carriers:["pmma"],grade:"C",
+  pmmaFix:"1 g (pre-loaded with 1 g gentamicin in commercial G+C cement)",pmmaSpacer:"1–2 g",
+  caso:"Not recommended — IV preparation did not set; tablets/capsules may leave a nidus",
+  elution:"Industrially co-loaded gentamicin + clindamycin cement produced higher gentamicin elution at 48 h than other formulations; hand-admixing 1 g feasible.",
+  thermal:"Stable",set:"As cement",
+  mix:"PMMA: powder-to-powder. Avoid in calcium sulphate.",
+  refs:[2,5,24,25]},
+ {name:"Rifampicin",cls:"Rifamycin — anti-staphylococcal biofilm agent. DO NOT ADD TO PMMA",type:"ab",carriers:["caso"],grade:"D",
+  pmmaFix:"Contraindicated — prevents polymerisation (soft, friable, discoloured cement)",pmmaSpacer:"Contraindicated. Microencapsulated rifampicin preserved mechanics in vitro (experimental only)",
+  caso:"300 mg (STH and practical charts) to 600 mg (project review) per 10 cc; + 8 mL saline",
+  elution:"Strong biofilm rationale; in calcium sulphate it is combined with vancomycin to limit resistant mutants (in vitro). Systemic rifampicin remains the evidence-based route for staphylococcal DAIR.",
+  thermal:"Stable",set:"Stimulan: ~10 min",
+  mix:"Stimulan only: mix powder + rifampicin, add 8 mL saline (± Stimulan liquid if needed), mix. Never admix into PMMA.",
+  flag:"Explicit 'do not add to PMMA' position agreed by the working group. Stimulan dose differs two-fold between sources (300 vs 600 mg).",
+  refs:[12,13,24,25,28]},
+ {name:"Ceftazidime",cls:"3rd-generation cephalosporin — Gram-negative incl. Pseudomonas",type:"ab",carriers:["pmma","caso"],grade:"C",
+  pmmaFix:"1 g",pmmaSpacer:"2–4 g (vancomycin 4 g + ceftazidime 4 g knee spacers; vancomycin 4 g + ceftazidime 2 g in multi-agent regimens; ICM 2 g)",
+  caso:"1 g powder / 10 cc — set ~30 min",
+  elution:"Clinical cohorts of vancomycin + ceftazidime spacers in knee PJI and two-stage TKA; thermally stable with minimal loss.",
+  thermal:"Stable",set:"PMMA: standard. Stimulan: ~30 min",
+  mix:"PMMA: powder-to-powder. Stimulan: mix powder + liquid to paste, add 1 g ceftazidime, mix.",
+  refs:[2,24,25,46,47,48,49]},
+ {name:"Cefotaxime / Cefuroxime / Cefazolin / Ceftriaxone",cls:"1st–3rd generation cephalosporins",type:"ab",carriers:["pmma","caso"],grade:"C",
+  pmmaFix:"Cefotaxime 1 g; cefuroxime 750 mg; cefazolin 1–2 g",pmmaSpacer:"Cefotaxime 2 g (ICM); cefuroxime 1.5–2 g (ICM); cefazolin 1–2 g",
+  caso:"Cefazolin 1 g (set ~5 min on charts; prolonged setting and incomplete phase conversion reported in vitro); ceftriaxone 1 g (set ~15 min)",
+  elution:"Cefotaxime + vancomycin + gentamicin spacer: 95% infection-free at 41 months in 22 hips. Cefuroxime 2 g in Simplex: RCT in primary TKA prophylaxis. Cefazolin stable to cement curing in solution studies.",
+  thermal:"Stable",set:"PMMA: standard. Stimulan: 5–15 min",
+  mix:"PMMA: powder-to-powder. Stimulan: ceftriaxone — mix with powder then add liquid; cefazolin — add to paste.",
+  refs:[2,24,25,46,51]},
+ {name:"Aztreonam",cls:"Monobactam — Gram-negative only incl. Pseudomonas; useful with β-lactam allergy",type:"ab",carriers:["pmma"],grade:"C",
+  pmmaFix:"1–2 g",pmmaSpacer:"3–4 g (4 g aztreonam + 4 g vancomycin in Simplex spacers, 46 hips, bioactive elution)",
+  caso:"Anecdotal only",
+  elution:"High intra-articular concentrations and bioactivity from Simplex spacers over ~100 days of follow-up.",
+  thermal:"Stable",set:"As cement",
+  mix:"PMMA: powder-to-powder.",
+  refs:[2,24,50]},
+ {name:"Colistin (colistimethate sodium)",cls:"Polymyxin — last-line MDR Gram-negative (Acinetobacter, CRE, Pseudomonas)",type:"ab",carriers:["pmma","caso"],grade:"D",
+  pmmaFix:"Not established",pmmaSpacer:"240 mg – 1 MIU (project review); up to 3 MIU cited in project guide; experimental spacer efficacy vs carbapenemase-producing Klebsiella",
+  caso:"6 × 1 MU vials (liquid) / 10 cc; or dissolve in 6 mL sterile water then add powder",
+  elution:"Adequate thermal stability; elution acceptable; animal model and small series only.",
+  thermal:"Adequate",set:"Stimulan: 4–10 min",
+  mix:"Stimulan: colistin liquid + powder + liquid, mix 30 s; or colistin in 6 mL water then add 10 cc powder.",
+  refs:[13,24,25,52]},
+ {name:"Fosfomycin (disodium)",cls:"Cell-wall inhibitor — broad incl. MDR Gram-negative; biofilm activity",type:"ab",carriers:["pmma"],grade:"D",
+  pmmaFix:"Not recommended (hygroscopic)",pmmaSpacer:"2–4 g",
+  caso:"Anecdotal; elutes from CaSO4 beads in vitro",
+  elution:"Suppressed S. aureus and E. coli for 24 h and MRSA for 48 h in vitro; disodium salt is hygroscopic — increases porosity and reduces strength.",
+  thermal:"Stable",set:"As cement",
+  mix:"PMMA: powder-to-powder; spacer use only.",
+  refs:[13,41,62]},
+ {name:"Amikacin",cls:"Aminoglycoside — active against gentamicin-resistant Gram-negatives and atypical mycobacteria",type:"ab",carriers:["pmma","caso"],grade:"C",
+  pmmaFix:"Not recommended (liquid only in UK)",pmmaSpacer:"Liquid: up to 16 mL of 250 mg/mL per batch reported safe (case series); softens cement — non-weight-bearing spacers only",
+  caso:"500 mg / 2 mL liquid per 10 cc",
+  elution:"Elutes from CaSO4 beads in vitro comparably to tobramycin; liquid loading of PMMA permissible only for spacers.",
+  thermal:"Stable",set:"Stimulan: ~20 min; with vancomycin ~30 min",
+  mix:"Stimulan: 4 mL saline to powder, mix 40 s (dry), add amikacin + Stimulan liquid, mix 30 s. With vancomycin 1 g: vancomycin + powder 20 s, 4 mL saline 50 s (crumbly), add amikacin, 30 s.",
+  refs:[14,24,25,62]},
+ {name:"Linezolid",cls:"Oxazolidinone — Gram-positive incl. VRE, MRSA",type:"ab",carriers:["caso"],grade:"D",
+  pmmaFix:"Not recommended",pmmaSpacer:"Not recommended as routine — poorly soluble, elution unreliable; in-vitro work shows some release at up to 10% w/w",
+  caso:"1 g / 10 cc; or 750 mg + meropenem 1 g",
+  elution:"In-vitro candidate for local prophylaxis with tigecycline; Stimulan reports only; prolonged biofilm cover is the rationale.",
+  thermal:"Marginal",set:"Stimulan: ~15 min (20 min with meropenem)",
+  mix:"Stimulan: mix powder + liquid, add linezolid, mix 10 s.",
+  refs:[13,25,53]},
+ {name:"Tigecycline",cls:"Glycylcycline — broad incl. MRSA, VRE, ESBL",type:"ab",carriers:["pmma","caso"],grade:"D",
+  pmmaFix:"500 mg (STH)",pmmaSpacer:"0.5–1 g (in-vitro: effective vs MRSA, VRE, ESBL without impairing cement properties)",
+  caso:"200–250 mg (4 × 50 mg vials) / 10 cc",
+  elution:"PMMA: in-vitro mechanical and microbiological data only. Calcium sulphate: manufacturer anecdote (200 mg/10 cc set hard at ~20 min; 500 mg/20 cc with 12 mL saline set at 38 min).",
+  thermal:"Reported stable in vitro",set:"Stimulan: 20–38 min",
+  mix:"PMMA: powder-to-powder. Stimulan: reconstitute each 50 mg vial with 1 mL sterile water, draw up 4 mL, add to Stimulan powder (± liquid), mix 20 s; or 6 mL saline to 250 mg then add powder, mix 35 s.",
+  refs:[24,25,26,53,54]},
+ {name:"Flucloxacillin",cls:"Anti-staphylococcal penicillin",type:"ab",carriers:["caso"],grade:"E",
+  pmmaFix:"—",pmmaSpacer:"No published PMMA data",
+  caso:"500 mg powder / 10 cc",
+  elution:"Practical charts only; sets very fast.",
+  thermal:"—",set:"Stimulan: ~2 min alone; ~5 min with gentamicin; 30–60 s with vancomycin (add 3 mL water for working time)",
+  mix:"Stimulan: mix powders 20 s, add liquid — work very fast, bead mat immediately. With gentamicin 240 mg: powders + gentamicin liquid + 3 mL Stimulan liquid.",
+  refs:[25]},
+ {name:"Piperacillin-tazobactam / Ertapenem / Co-amoxiclav / Doxycycline",cls:"β-lactams and tetracycline — practical Stimulan charts only",type:"ab",carriers:["caso"],grade:"E",
+  pmmaFix:"Ertapenem/imipenem 1–2 g reported with 70–90% recovery (in vitro)",pmmaSpacer:"As fixation; limited data",
+  caso:"Pip-taz 1 g (10–20 min); ertapenem 1 g (10–15 min); co-amoxiclav 600 mg (5–15 min); doxycycline 500 mg (≈10 min, chart only)",
+  elution:"Setting-time data only; minimal PJI evidence; heat-sensitive β-lactams are better suited to a no-heat carrier.",
+  thermal:"Pip-taz heat-sensitive in PMMA",set:"Stimulan: 5–20 min",
+  mix:"Stimulan: pip-taz/co-amoxiclav — add to paste, mix ~10–30 s. Ertapenem — 7 mL saline to powder, pre-mix 60–80 s (no longer), add 1 g, mix 30 s.",
+  refs:[25,43]},
+
+ // ----- Antifungals -----
+ {name:"Amphotericin B deoxycholate (conventional)",cls:"Polyene — broad fungicidal incl. Candida, Aspergillus",type:"af",carriers:["pmma","caso"],grade:"C",
+  pmmaFix:"Not recommended (bending/impact strength reduced)",pmmaSpacer:"200–800 mg (200 mg in VMA; 500 mg ≈12.5 mg/g polymer in project guide)",
+  caso:"100 mg (2 × 50 mg) / 10 cc",
+  elution:"Colours cement orange; compressive strength slightly reduced, bending and impact strength significantly reduced; elution high in first 24 h, falling to day 5, <1% of dose released; two Candida PJI cases treated successfully in Copal without nephrotoxicity. Pharmaceutical powder contains only a small fraction of pure drug.",
+  thermal:"Stable",set:"Stimulan: 7–17 min",
+  mix:"PMMA: powder-to-powder. Stimulan (Biocomposites): 7 mL saline to 10 cc Rapid Cure, pre-mix 80 s, add 2 × 50 mg, mix 20 s, bead mat immediately.",
+  flag:"Gentamicin reduces amphotericin release from the deoxycholate formulation in vitro — check compatibility before pairing [56]. Sterile deoxycholate powder is frequently in short supply.",
+  refs:[11,13,25,26,55,56]},
+ {name:"Liposomal amphotericin B",cls:"Polyene (liposomal)",type:"af",carriers:["pmma","caso"],grade:"D",
+  pmmaFix:"Not recommended",pmmaSpacer:"200–800 mg (11–18% of dose elutes — better than deoxycholate, less than voriconazole)",
+  caso:"100 mg / 10 cc",
+  elution:"Two cases: joint-fluid amphotericin 14–26 mg/L sustained 17–21 days after calcium-sulphate application with negligible serum levels. Higher cost; limited clinical reporting.",
+  thermal:"Stable",set:"Stimulan: ~20 min",
+  mix:"Stimulan: mix powder + amphotericin 20 s, add liquid, mix 20 s, bead mat.",
+  refs:[25,56,57]},
+ {name:"Voriconazole",cls:"Triazole — Candida (incl. some azole-resistant), Aspergillus, Trichosporon",type:"af",carriers:["pmma","caso"],grade:"C",
+  pmmaFix:"200 mg (STH) — 300 mg delivers meaningful active drug",pmmaSpacer:"300–600 mg (ICM); 57% / 63% released over 30 days; compressive strength 79→53 MPa (300 mg) and 69→31 MPa (600 mg) — 600 mg spacer only; 200 mg already efficacious in vitro",
+  caso:"200 mg (Stimulan Mixing Info) to 400 mg (STH chart) / 10 cc",
+  elution:"Bioactive release from PMMA and calcium sulphate; antifungal-loaded calcium sulphate active against Candida biofilm in vitro; clinical successes in Trichosporon, Candida and Aspergillus PJI (case level). Powder contains cyclodextrin carrier, increasing admix volume.",
+  thermal:"Stable",set:"Stimulan: 20–25 min",
+  mix:"PMMA: powder-to-powder. Stimulan: 7 mL saline per 10 cc (not the water tube), pre-mix 60–70 s (no longer), add voriconazole, fold 30 s; alternative chart: mix with powder, add liquid, 20 s.",
+  flag:"Stimulan dose differs two-fold between the two practical charts (200 vs 400 mg).",
+  refs:[2,24,25,58,59,60]},
+ {name:"Fluconazole",cls:"Triazole — fluconazole-sensitive Candida only",type:"af",carriers:["pmma","caso"],grade:"E",
+  pmmaFix:"Not recommended",pmmaSpacer:"200–400 mg (single case reports)",
+  caso:"200 mg powder / 10 cc",
+  elution:"Elutes at lower concentrations; activity confined to susceptible Candida. Serum assay available (North Bristol) if systemic therapy is co-prescribed.",
+  thermal:"Stable",set:"Stimulan: ~2 min (sets very fast)",
+  mix:"Stimulan: mix powder + fluconazole 20 s, add liquid — work very fast, bead mat immediately.",
+  refs:[13,25,33]},
+ {name:"Caspofungin (echinocandins)",cls:"Echinocandin — Candida incl. biofilm; Aspergillus",type:"af",carriers:["caso"],grade:"E",
+  pmmaFix:"Not recommended",pmmaSpacer:"Not recommended — large molecule, poor PMMA elution; essentially no clinical cement data",
+  caso:"70 mg / 10 cc Rapid Cure (Biocomposites 2023) or 150 mg / 10 cc (clinical feedback 2019; STH)",
+  elution:"Calcium sulphate use rests on clinical feedback; antifungal-loaded calcium sulphate shows anti-biofilm activity in vitro. Micafungin/anidulafungin: experimental only.",
+  thermal:"Marginal",set:"Stimulan: 4–7 min",
+  mix:"Stimulan (2023): add 70 mg to 10 cc powder, mix until homogeneous, add 6 mL mixing solution, mix ≤30 s, bead mat. Alternative (2019): pre-mix powder + solution 40 s, add 150 mg, mix 40 s (set ~5 min).",
+  refs:[13,25,26,60]},
+ {name:"Itraconazole",cls:"Triazole — NOT recommended",type:"af",carriers:[],grade:"E",
+  pmmaFix:"Not recommended",pmmaSpacer:"Not recommended — very poor water solubility, minimal elution",
+  caso:"—",
+  elution:"Negative recommendation on solubility grounds.",
+  thermal:"—",set:"—",
+  mix:"Avoid.",
+  refs:[13,61]}
+];
+
+// ---------- Carriers ----------
+const CARRIERS=[
+ ["Gentamicin-premixed high/medium-viscosity PMMA (e.g. Palacos R+G / MV+G, Refobacin R)","0.5 g gentamicin","Palacos-type cements elute more aminoglycoside and partner drug than Simplex-type; compatible with vancomycin admixing to ~4 g/40 g for spacers; registry data for pre-loaded cement in primary arthroplasty.","Default spacer base in UK practice — [3,4,21,35]"],
+ ["Dual-antibiotic premixed PMMA (e.g. Copal G+V, VancoGenx)","0.5 g gentamicin + 2 g vancomycin","Manufactured dual cement: predictable handling; hand-admixed vancomycin in gentamicin cement eluted more vancomycin but with lower compressive strength. Preferred by the JAC framework where suitable.","Commercial first choice — [1,3,5,6]"],
+ ["Gentamicin + clindamycin premixed PMMA (e.g. Copal G+C)","1 g gentamicin + 1 g clindamycin","Higher gentamicin elution at 48 h than other premixed formulations in vitro; used as fixation and spacer cement in some UK units.","[5,24]"],
+ ["Spacer-specific PMMA (e.g. Copal Spacem)","None (designed for admixing)","Higher vancomycin elution than gentamicin cement at equal loading; lower compressive strength at high loads; spacers only.","D — [6]"],
+ ["Simplex P / T (PMMA)","T = 1 g tobramycin","Barium radiopacifier; lower aminoglycoside elution than Palacos-type; base cement for the VMA cohort and vancomycin + aztreonam spacers.","D/C — [10,11,21,50]"],
+ ["CMW 1G / 3G, SmartSet GHV (PMMA)","1 g gentamicin","Higher loading but lower elution per unit dose than Palacos; gentamicin + teicoplanin synergistic elution in CMW1.","D — [22]"],
+ ["Stimulan (calcium sulphate, Biocomposites)","None","Pharmaceutical-grade CaSO4 hemihydrate; resorbs over weeks; burst release with ~10× PMMA local concentrations; beads or paste; no thermal exposure; measurable serum vancomycin and hypercalcaemia reported — monitor.","DAIR / single-stage / dead space — C/D — [15,16,17,18,62]"],
+ ["Cerament G / V (CaSO4 + hydroxyapatite)","G = 17.5 mg/mL gentamicin; V = 66 mg/10 mL vancomycin","Injectable; hydroxyapatite scaffold persists; 96% eradication in 100 chronic osteomyelitis cases (single stage).","Osteomyelitis — B/C — [63]"],
+ ["Other CaSO4 / composite carriers (Genex, OsteoSet, PerOssal, Herafill)","Varies","Less robust PJI data than Stimulan/Cerament; PerOssal loaded by soaking.","D/E — [13]"],
+ ["Bioactive glass S53P4","None (intrinsic)","pH/osmotic antimicrobial effect without antibiotic loading; osteomyelitis use; no fixation role.","C/D — [13]"]
+];
+
+// ---------- Combinations ----------
+const COMBOS=[
+ ["GV — vancomycin + gentamicin","PMMA / CaSO4","Empirical standard; synergy vs staphylococci; covers ~85–90% of PJI pathogens; commercial dual equivalents exist.","[3,4,5]"],
+ ["VMA — vancomycin 4 g + meropenem 2 g + amphotericin B 200 mg / 40 g","PMMA (spacer)","Retrospective cohort, 114 PJI: recurrence 1.9% vs 17.7% with GV (p=0.006); 0% vs 18.5% in culture-negative PJI. Meropenem acts as porogen. Grade C.","[11]"],
+ ["Vancomycin 4 g + ceftazidime 2–4 g","PMMA (spacer)","Clinical cohorts in knee PJI and two-stage TKA; adds Pseudomonas/Gram-negative cover.","[47,48]"],
+ ["Multiple high-dose: vancomycin + ceftazidime + clindamycin + gentamicin (e.g. 4/2/1/1 g)","PMMA (spacer)","Gram-positive PJI cohort: failure 6.6% vs 20.8% with vancomycin alone (p=0.005). Grade C.","[49]"],
+ ["Vancomycin 4 g + aztreonam 4 g","PMMA (spacer, Simplex)","46 hips; high intra-articular concentrations, bioactive over ~100 days.","[50]"],
+ ["Vancomycin + gentamicin + cefotaxime","PMMA (spacer)","22 hips; 95% infection-free at 41 months.","[51]"],
+ ["Daptomycin + gentamicin","PMMA / CaSO4","Synergistic anti-biofilm activity in vitro; case report of 2 g + 2 g spacer; Stimulan chart sets ~25 min.","[25,40,41]"],
+ ["Gentamicin + teicoplanin","PMMA","Synergistic elution in CMW1; in Palacos R teicoplanin elution fell when combined.","[22]"],
+ ["Vancomycin + rifampicin","CaSO4 only","Rifampicin limits resistant mutants in vitro; first-line dual bead combination in some units. Never in PMMA.","[12,13,25]"],
+ ["Meropenem + gentamicin; linezolid + meropenem; amikacin + vancomycin; flucloxacillin + vancomycin / gentamicin","CaSO4","Practical Stimulan chart combinations with setting times (30 / 20 / 30 / 0.5–5 min).","[24,25]"],
+ ["Antibiotic + antifungal (e.g. vancomycin + amphotericin B ± voriconazole)","PMMA / CaSO4","Mixed bacterial-fungal PJI — case-level evidence; gentamicin reduces release of deoxycholate amphotericin in vitro.","[55,56,58]"],
+ ["AVOID: rifampicin in PMMA","—","Prevents polymerisation. Use calcium sulphate instead.","[12,13]"],
+ ["CAUTION: any combination ≥ ~6 g total / 40 g","PMMA","Regularly fails ISO 5833 mechanical thresholds; spacer only, and protected weight-bearing.","[7,8,9]"]
+];
+
+// ---------- Rendering ----------
+const gradeRank={A:1,B:2,C:3,D:4,E:5};
+function refById(n){return REFS.find(x=>x.n===n);}
+function refURL(r){return r.u?r.u:(r.doi?'https://doi.org/'+r.doi:null);}
+function refLinks(arr){return '<div class="refnums">Evidence: '+arr.map(n=>{const r=refById(n);if(!r)return '['+n+']';const u=refURL(r);return u?`<a href="${u}" target="_blank" rel="noopener" title="${r.t.replace(/"/g,'')}">[${n}]</a>`:`<a href="#ref-${n}" title="${r.t.replace(/"/g,'')}">[${n}]</a>`;}).join('')+'</div>';}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+function renderAgents(){
+  const q=document.getElementById('search').value.toLowerCase();
+  const ft=document.getElementById('ftype').value, fc=document.getElementById('fcarrier').value, fg=document.getElementById('fgrade').value;
+  const list=document.getElementById('list'); list.innerHTML='';
+  let shown=0;
+  AGENTS.forEach((a,i)=>{
+    if(ft&&a.type!==ft)return;
+    if(fc&&!a.carriers.includes(fc))return;
+    if(fg&&gradeRank[a.grade]>gradeRank[fg])return;
+    const hay=(a.name+' '+a.cls+' '+a.elution+' '+a.mix+' '+(a.flag||'')+' '+a.pmmaSpacer+' '+a.caso).toLowerCase();
+    if(q&&!hay.includes(q))return;
+    shown++;
+    const card=document.createElement('div'); card.className='card';
+    const id='agent-'+i;
+    card.innerHTML=`
+      <button class="card-head" aria-expanded="false" aria-controls="${id}">
+        <span class="pill ${a.type}">${a.type==='af'?'Antifungal':'Antibiotic'}</span>
+        <span style="flex:1"><h3>${esc(a.name)}</h3><span class="cls">${esc(a.cls)}</span></span>
+        <span class="grade g${a.grade}" title="Evidence grade ${a.grade}">${a.grade}</span>
+        <span class="chev" aria-hidden="true">▶</span>
+      </button>
+      <div class="body" id="${id}">
+        <dl class="grid">
+          <dt>PMMA — fixation / 40 g</dt><dd>${esc(a.pmmaFix)}</dd>
+          <dt>PMMA — spacer / 40 g</dt><dd>${esc(a.pmmaSpacer)}</dd>
+          <dt>Calcium sulphate / 10 cc</dt><dd>${esc(a.caso)}</dd>
+          <dt>Elution &amp; evidence</dt><dd>${esc(a.elution)}</dd>
+          <dt>Thermal stability</dt><dd>${esc(a.thermal)}</dd>
+          <dt>Setting time</dt><dd>${esc(a.set)}</dd>
+        </dl>
+        <div class="mix"><b>Mixing:</b> ${esc(a.mix)}</div>
+        ${a.flag?`<div class="flag"><b>Flag:</b> ${esc(a.flag)}</div>`:''}
+        ${refLinks(a.refs)}
+      </div>`;
+    const head=card.querySelector('.card-head');
+    head.addEventListener('click',()=>{const open=card.classList.toggle('open');head.setAttribute('aria-expanded',open?'true':'false');});
+    list.appendChild(card);
+  });
+  document.getElementById('count').textContent=shown+' of '+AGENTS.length+' agents';
+  if(!shown)list.innerHTML='<p style="color:#5b6675">No agents match your filters.</p>';
+}
+function linkifyRefs(s){return String(s).replace(/\[([\d,\s]+)\]/g,(m,g)=>'['+g.split(',').map(x=>{const n=+x.trim();const r=refById(n);const u=r?refURL(r):null;return u?`<a href="${u}" target="_blank" rel="noopener">${n}</a>`:(r?`<a href="#ref-${n}">${n}</a>`:n);}).join(', ')+']');}
+function tableHTML(headers,rows){
+  return '<thead><tr>'+headers.map(h=>`<th scope="col">${h}</th>`).join('')+'</tr></thead><tbody>'+
+    rows.map(r=>'<tr>'+r.map(c=>`<td>${linkifyRefs(c)}</td>`).join('')+'</tr>').join('')+'</tbody>';
+}
+document.getElementById('carrierTable').innerHTML=tableHTML(["Carrier","Pre-loaded antimicrobial","Key properties","Role / evidence"],CARRIERS);
+document.getElementById('comboTable').innerHTML=tableHTML(["Regimen","Carrier","Evidence / outcome","Refs"],COMBOS);
+document.getElementById('refList').innerHTML=REFS.map(r=>{
+  const ids=[];
+  if(r.doi)ids.push(`<a href="https://doi.org/${r.doi}" target="_blank" rel="noopener">doi:${r.doi}</a>`);
+  if(r.pmid)ids.push(`<a href="https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/" target="_blank" rel="noopener">PMID ${r.pmid}</a>`);
+  if(r.pmc)ids.push(`<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/${r.pmc}/" target="_blank" rel="noopener">${r.pmc}</a>`);
+  if(r.u)ids.push(`<a href="${r.u}" target="_blank" rel="noopener">link</a>`);
+  if(r.proj)ids.push('<i>project document — not publicly available</i>');
+  return `<div class="ref" id="ref-${r.n}"><b>${r.n}.</b> ${r.t} <span class="ids">${ids.join(' · ')}</span></div>`;
+}).join('');
+
+// Linkify [n] citations in static prose (overview, technique, governance, safety)
+document.querySelectorAll('#overview, #technique, #governance, #safety, #carriers, #combos').forEach(el=>{
+  el.querySelectorAll('li, td, p, div.note, div.kp div').forEach(node=>{
+    if(node.querySelector('li, td, p, div'))return; // leaf nodes only
+    node.innerHTML=linkifyRefs(node.innerHTML);
+  });
+});
+
+['search','ftype','fcarrier','fgrade'].forEach(id=>document.getElementById(id).addEventListener('input',renderAgents));
+const tabs=[...document.querySelectorAll('#nav button')];
+function showTab(name){
+  tabs.forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===name?'true':'false'));
+  document.querySelectorAll('main section').forEach(s=>s.classList.toggle('active',s.id===name));
+  if(history.replaceState)history.replaceState(null,'','#'+name);
+}
+tabs.forEach(btn=>btn.addEventListener('click',()=>showTab(btn.dataset.tab)));
+document.getElementById('nav').addEventListener('keydown',e=>{
+  const i=tabs.indexOf(document.activeElement); if(i<0)return;
+  if(e.key==='ArrowRight'){tabs[(i+1)%tabs.length].focus();}
+  if(e.key==='ArrowLeft'){tabs[(i-1+tabs.length)%tabs.length].focus();}
+});
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#ref-"]');if(a){showTab('refs');}});
+const initial=location.hash.replace('#','');
+if(initial&&tabs.some(b=>b.dataset.tab===initial))showTab(initial);
+renderAgents();
+</script>
+</body>
+</html>
