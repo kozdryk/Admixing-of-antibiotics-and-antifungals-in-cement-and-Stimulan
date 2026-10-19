@@ -10,7 +10,7 @@ A single-file, offline-capable web reference on adding (admixing) antibiotics an
 
 | Tab | What it holds |
 |---|---|
-| Overview | Key positions, decision pathway, related evidence, scope note |
+| Overview | Key positions, decision pathway, related evidence |
 | Agents | 24 antibiotics/antifungals: PMMA fixation vs spacer dose per 40 g, Stimulan dose per 10 cc, elution, thermal stability, setting time, step-by-step mixing, flags where sources disagree, evidence grade and linked references |
 | Carriers | PMMA cements and bioabsorbable carriers |
 | Combinations | Multi-agent regimens with outcome data; what to avoid |
